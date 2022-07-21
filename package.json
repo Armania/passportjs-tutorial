@@ -10,17 +10,17 @@
     "sqlite"
   ],
   "author": {
-    "name": "Jared Hanson",
-    "email": "jaredhanson@gmail.com",
-    "url": "https://www.jaredhanson.me/"
+    "name": "Armani Appolon",
+    "email": "armaniappolon@gmail.com",
+    "url": "https://www.github.com/armania"
   },
-  "homepage": "https://github.com/passport/todos-express-starter",
+  "homepage": "https://github.com/armania/todos-express-starter",
   "repository": {
     "type": "git",
-    "url": "git://github.com/passport/todos-express-starter.git"
+    "url": "git://github.com/armania/todos-express-starter.git"
   },
   "bugs": {
-    "url": "https://github.com/passport/todos-express-starter/issues"
+    "url": "https://github.com/armani/todos-express-starter/issues"
   },
   "funding": {
     "type": "github",
@@ -28,17 +28,22 @@
   },
   "license": "Unlicense",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon ./bin/www"
   },
   "dependencies": {
+    "connect-sqlite3": "^0.9.13",
     "cookie-parser": "~1.4.4",
+    "crypto": "^1.0.1",
     "debug": "~2.6.9",
     "dotenv": "^8.6.0",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
+    "express-session": "^1.17.3",
     "http-errors": "~1.6.3",
     "mkdirp": "^1.0.4",
     "morgan": "~1.9.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
     "pluralize": "^8.0.0",
     "sqlite3": "^5.0.2"
   }

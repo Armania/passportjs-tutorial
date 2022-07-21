@@ -5,8 +5,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var passport = require('passport'); // added passport
+var session = require('express-session'); // needed for sessions
+
+var SQLiteStore = require('connect-sqlite3')(session); // added for db
 
 var indexRouter = require('./routes/index');
+var authRouter = require('./routes/auth'); // added to authenticate
 
 var app = express();
 
@@ -21,8 +26,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({ // added middleware
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false,
+  store: new SQLiteStore({ db: 'sessions.db', dir: './var/db' })
+}));
+app.use(passport.authenticate('session')); // added for sessions
 
 app.use('/', indexRouter);
+app.use('/', authRouter); // add new router to authenticate
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
